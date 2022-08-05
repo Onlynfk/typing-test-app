@@ -13,7 +13,7 @@ function index() {
     }
 
     function handleInputTimer(e) {
-        setCounter(e.target.value)
+        setcounterDefault(e.target.value)
     }
 
     function toggleHandler() {
@@ -38,7 +38,7 @@ function index() {
                             <button type="button" onClick={handleClickCounter = () => setcounterDefault(2)} className="btn btn-outline-secondary btn-sm px-4">2</button>
                             <button type="button" onClick={handleClickCounter = () => setcounterDefault(3)} className="btn btn-outline-secondary btn-sm px-4">3</button>
                             <button type="button" onClick={handleClickCounter = () => setcounterDefault(4)} className="btn btn-outline-secondary btn-sm px-4">4</button>
-                            <input type="number" onClick={handleInputTimer} className="timer-input" placeholder='input one' />
+                            <input type="number" onChange={handleInputTimer} className="timer-input" placeholder='input one' />
                         </div>
 
                         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mt-5">
