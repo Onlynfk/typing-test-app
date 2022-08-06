@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import Link from 'next/link';
 import Body from "../components/body";
 
 
-function index() {
+function Home() {
     const [toggle, setToggle] = useState(false);
-    const [counter, setCounter] = useState("");
     const [counterDefault, setcounterDefault] = useState(0)
 
     function handleClickCounter(value) {
@@ -17,9 +15,6 @@ function index() {
     }
 
     function toggleHandler() {
-        if (counter != 0) {
-            setcounterDefault(counter)
-        }
         if (counterDefault != 0) {
             setToggle(true)
         }
@@ -29,7 +24,7 @@ function index() {
         <div className="mt-5">
             {toggle === false ?
 
-                <div className="px-4 py-5 my-5 text-center ">
+                (<div className="px-4 py-5 my-5 text-center ">
                     <h1 className="display-5 fw-bold">Welcome to the Typing Challenge</h1>
                     <div className="col-lg-6 mx-auto">
                         <p className="lead mb-4">Pick a time in minutes below or input one for the challenge ⤵️ </p>
@@ -40,21 +35,16 @@ function index() {
                             <button type="button" onClick={handleClickCounter = () => setcounterDefault(4)} className="btn btn-outline-secondary btn-sm px-4">4</button>
                             <input type="number" onChange={handleInputTimer} className="timer-input" placeholder='input one' />
                         </div>
-
                         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center mt-5">
-                            {counterDefault != 0 && <button onClick={toggleHandler} className="btn btn-primary btn-lg mt-4 px-4 gap-3">Let's Get Started ⏭️</button>
-
-
-                            }
+                           {counterDefault > 0 && (<button onClick={toggleHandler} className="btn btn-primary btn-lg mt-4 px-4 gap-3">Let's Get Started</button>)}
                         </div>
                     </div>
-                </div> :
-                <Body
+                </div>) : (<Body
                     counter={counterDefault}
-                />
+                />)
             }
         </div>
     )
 }
 
-export default index
+export default Home;

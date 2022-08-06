@@ -9,7 +9,7 @@ function Input({
   currentInput
 }) {
   return (
-    <input type="text" ref={textInput} className="form-control form-control-lg " width="100%" disabled={status != "started"} className="input" onKeyDown={handleKeyDown}
+    <input type="text" ref={textInput} className="form-control form-control-lg " width="100%" disabled={status != "started"} onKeyDown={handleKeyDown}
       onChange={handleChangeInput} value={currentInput} />
 
   )

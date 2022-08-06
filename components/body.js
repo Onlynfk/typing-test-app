@@ -1,17 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useRouter } from 'next/router'
 import CountDown from './CountDown'
 import Input from './Input'
 import Paragraph from './Paragraph'
 import Result from './Result'
 
 import generateWords from '../utils/generateWords'
-import secondsToHms from '../utils/secondsCoverter'
 
 function Body({ counter }) {
-  const SECONDS = counter
+  const SECONDS = counter * 60
   const [words, setWords] = useState([])
-  const [countDown, setCountDown] = useState(counter)
+  const [countDown, setCountDown] = useState(SECONDS)
   const [currentInput, setCurrentInput] = useState("")
   const [correct, setCorrect] = useState(0)
   const [incorrect, setInCorrect] = useState(0)
@@ -26,7 +24,7 @@ function Body({ counter }) {
   useEffect(() => {
     setWords(generateWords())
     setCountDown(SECONDS)
-  }, [])
+  }, [SECONDS])
 
   useEffect(() => {
     if (status === "started") {
@@ -118,7 +116,7 @@ function Body({ counter }) {
   return (
     <div className="container">
       <div className="px-4 py-5 my-5 text-center">
-      
+
         <CountDown
           countDown={countDown}
         />
@@ -160,6 +158,7 @@ function Body({ counter }) {
           correct={correct}
           incorrect={incorrect}
           words={words}
+          timer={countDown}
         />
 
       }

@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Result({ correct, incorrect, words }) {
+function Result({ correct, incorrect, words, timer }) {
     return (
         <div className='section '>
             <div className=' row align-items-start  text-center '>
                 <div className='col'>
-                    <h4 className=''>Words :</h4>
+                    <h4 className=''>Words in {timer / 60} mins :</h4>
                     <p className='has text-primary display-4'>{correct}</p>
 
                 </div>
